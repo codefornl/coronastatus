@@ -172,6 +172,9 @@ export const getPercentageWithSymptomsOfTotal = (
       true
     )
   );
+  if (filteredReports.length == 0 || reports.length == 0) {
+    return "0";
+  }
   return ((filteredReports.length / reports.length) * 100).toFixed(0);
 };
 
