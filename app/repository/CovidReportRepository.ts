@@ -28,7 +28,7 @@ export class CovidReportRepository {
   db: SqlLiteDatabase;
 
   constructor() {
-    this.db = getInstance('covid_db');
+    this.db = getInstance('./data/covid.sqlite');
   }
 
   async addNewCovidReport(

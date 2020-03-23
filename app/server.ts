@@ -74,7 +74,7 @@ app.set('views', [
 
 app.use(urls.submitReport, reportRoutes);
 app.use(urls.map, mapRoutes);
-app.use(urls.map, apiRoutes);
+app.use(urls.api, apiRoutes);
 app.use(urls.statistics, statisticsRoutes);
 app.use('/', variousRoutes);
 
@@ -115,7 +115,7 @@ app.use(
 );
 
 async function initializeDatabase() {
-  const db = getInstance('covid_db');
+  const db = getInstance('./data/covid.sqlite');
   const numberOfTables = (await db.listTables()).length;
   if (numberOfTables === 0) {
     await db.applyMigrationScripts(
